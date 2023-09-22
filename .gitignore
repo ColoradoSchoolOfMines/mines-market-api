@@ -1,5 +1,12 @@
 # Project specific exceptions
 environment/
+config.json
+info.json
+result.json
+
+# Notes
+to-do.txt
+test.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

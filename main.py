@@ -19,7 +19,7 @@ def fetchLocationIds(location_name, apiKey):
     return requests.get(url, params=payload, headers=headers).text
 
 
-def fetchMenu(date, apiKey):
+def fetchMenu(date, locationid, apiKey):
     """ request from the bite API the menu for a specific date
 
     Args:
@@ -30,7 +30,7 @@ def fetchMenu(date, apiKey):
         str: json containing the http response
     """
     url = "https://bite-external-api.azure-api.net/extern/bite-application/location"
-    params = {"date": date, "locationid": "75204001"}
+    params = {"date": date, "locationid": locationid}
     headers = {"Ocp-Apim-Subscription-Key": apiKey}
     return requests.get(url, params=params, headers=headers).text
 
@@ -46,7 +46,7 @@ def main():
 
     # get today's menu
     with open("info.json", "w", encoding="utf-8") as file:
-        file.write(fetchMenu(datetime.date.today(), config["SODEXO_API_KEY"]))
+        file.write(fetchMenu(datetime.date.today(), "75204001", config["SODEXO_API_KEY"]))
 
 if __name__ == "__main__":
     main()

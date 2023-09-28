@@ -35,13 +35,18 @@ def fetchMenu(date, apiKey):
     return requests.get(url, params=params, headers=headers).text
 
 
-# open config file with api key
-with open("config.json", "r") as file:
-    config = json.load(file)
+def main():
+    # open config file with api key
+    with open("config.json", "r") as file:
+        config = json.load(file)
 
-# get info on mines
-with open("result.json", "w") as file:
-    file.write(fetchLocationIds("mines", config["SODEXO_API_KEY"]))
+    # search for info on mines
+    with open("result.json", "w") as file:
+        file.write(fetchLocationIds("mines", config["SODEXO_API_KEY"]))
 
-with open("info.json", "w", encoding="utf-8") as file:
-    file.write(fetchMenu(datetime.date.today(), config["SODEXO_API_KEY"]))
+    # get today's menu
+    with open("info.json", "w", encoding="utf-8") as file:
+        file.write(fetchMenu(datetime.date.today(), config["SODEXO_API_KEY"]))
+
+if __name__ == "__main__":
+    main()

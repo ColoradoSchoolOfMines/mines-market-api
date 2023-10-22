@@ -9,6 +9,7 @@ class MenuItem:
         self.calories = calories
         self.ingredients = ingredients
 
+
 # open config file with api key
 with open("config.json", "r") as file:
     config = json.load(file)

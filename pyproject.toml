@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sodexo_api"
+version = "1.0.0"
+authors = [
+  { name="Yamato Matsumura", email="matsumura.yamato@gmail.com" }, 
+  { name="Keenan Buckley", email="keenandbuckley@protonmail.com"}
+]
+description = "Access sodexo api to retrieve menu for desired location"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: 0BSD License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "requests"
+]
+
+[project.urls]
+Homepage = "https://github.com/ColoradoSchoolOfMines/sodexo-api"
+Issues = "https://github.com/ColoradoSchoolOfMines/sodexo-api/issues"

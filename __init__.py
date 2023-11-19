@@ -1,1 +1,1 @@
-from APIFunctions import fetchLocationIds, get_parsed_menu
+from api_functions import fetchLocationIds, get_parsed_menu

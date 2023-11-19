@@ -11,9 +11,10 @@ def parse_menu(fullMenuDict):
     parsedMenu = {}  # dict storing Meal : {Course : Item}
     course = {}  # dict storing Course: Item
     item = {}  # stores item formal names
-    for i in range(len(fullMenuDict["Menus"][0]["OrderDays"][0]["MenuItems"])):
+    fullMenuDict = fullMenuDict["Menus"][0]["OrderDays"][0]["MenuItems"]
+    for i in range(len(fullMenuDict)):
         # load menu item
-        menuItem = fullMenuDict["Menus"][0]["OrderDays"][0]["MenuItems"][i]["BiteMenuItemSizes"][0]
+        menuItem = fullMenuDict[i]["BiteMenuItemSizes"][0]
 
         # check if course or description missing from keys
         if not {"Course", "Description"}.issubset(menuItem.keys()):

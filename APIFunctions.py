@@ -11,10 +11,9 @@ def fetchLocationIds(location_name, apiKey):
 
 
 # get menu
-def getMenu(apiKey):
+def getMenu(apiKey, date=datetime.date.today()):
     url = "https://bite-external-api.azure-api.net/extern/bite-application/location"
-    today = datetime.date.today()
-    params = {"date": today, "locationid": "75204001"}
+    params = {"date": date, "locationid": "75204001"}
     headers = {"Ocp-Apim-Subscription-Key": apiKey}
     return requests.get(url, params=params, headers=headers).text
 

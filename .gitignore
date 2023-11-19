@@ -3,6 +3,7 @@ environment/
 config.json
 info.json
 result.json
+full_menu_info.json
 
 # Notes
 to-do.txt

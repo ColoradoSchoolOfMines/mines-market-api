@@ -1,14 +1,6 @@
 import json
 import APIFunctions
-
-
-class MenuItem:
-    def __init__(self, formalName, description, calories, ingredients):
-        self.formalName = formalName
-        self.description = description
-        self.calories = calories
-        self.ingredients = ingredients
-
+import menu
 
 # open config file with api key
 with open("config.json", "r") as file:
@@ -21,42 +13,11 @@ with open("result.json", "w") as file:
 with open("full_menu_info.json", "w", encoding="utf-8") as file:
     file.write(APIFunctions.getMenu(config["SODEXO_API_KEY"]))
 
-menu = open("full_menu_info.json")
-menu = menu.read()
-fullMenuDict = json.loads(menu)
+with open("full_menu_info.json", 'r') as file:
+    # menu = menu.read()
+    fullMenuDict = json.load(file)
 
-# Initialize variables
-parsedMenu = {}  # dict storing Meal : {Course : Item}
-course = {}  # dict storing Course: Item
-item = {}  # stores item formal names
-for i in range(len(fullMenuDict["Menus"][0]["OrderDays"][0]["MenuItems"])):
-    try:
-        time = APIFunctions.get_menu_info(fullMenuDict, i, "StartTime")
-        # only get today
-        if time[:10] == str(APIFunctions.datetime.date.today()):
-            menuItem = fullMenuDict["Menus"][0]["OrderDays"][0]["MenuItems"][i]["BiteMenuItemSizes"][0]
-            menuItem["FormalName"] = MenuItem(menuItem["FormalName"], menuItem["Description"], menuItem["Calories"], menuItem["Ingredients"])
-
-            # create meal times
-            if menuItem["Meal"] not in parsedMenu:
-                # delete course dict so course names can repeat depending on meal time
-                course = {}
-                parsedMenu[menuItem["Meal"]] = menuItem["Meal"]
-            # add course names to respective meal time
-            if menuItem["Course"] not in course:
-                # delete item so different menu item's can appear in each course
-                item = {}
-                if menuItem["Course"] == "MISCELLANEOUS":  # unneccesary course name
-                    continue
-                course[menuItem["Course"]] = menuItem["Course"]
-            # make a list of all menu item's in a specific course
-            if menuItem["FormalName"] not in item:
-                item[menuItem["FormalName"].formalName] = menuItem["FormalName"]
-                course[menuItem["Course"]] = item
-                # create parsedMenu dict
-                parsedMenu[menuItem["Meal"]] = course
-    except KeyError:
-        pass
+parsedMenu = menu.parse_menu(fullMenuDict)
 
 mealKeys = parsedMenu.keys()
 for key in mealKeys:

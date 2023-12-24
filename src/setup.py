@@ -9,7 +9,7 @@ setup(
     packages=find_packages(),
     classifiers=[
         'Programming Language :: Python :: 3',
-        'License :: OSI Approved :: 0BSD License',
+        'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
     ],
     python_requires='>=3.10',

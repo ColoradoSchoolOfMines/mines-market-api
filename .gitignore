@@ -4,6 +4,7 @@ config.json
 info.json
 result.json
 full_menu_info.json
+sodexo_key.txt
 
 # Notes
 to-do.txt

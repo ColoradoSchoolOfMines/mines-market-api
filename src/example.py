@@ -1,6 +1,6 @@
 import json
 
-from __init__ import fetchLocationIds, get_parsed_menu
+from __init__ import fetch_location_ids, get_parsed_menu
 
 if __name__ == "__main__":
     # open config file with api key
@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
     # get info on mines
     with open("result.json", "w") as file:
-        json.dump(fetchLocationIds("mines", config["SODEXO_API_KEY"]), file)
+        json.dump(fetch_location_ids("mines", config["SODEXO_API_KEY"]), file)
 
     parsedMenu = get_parsed_menu(config["SODEXO_API_KEY"], config["LOCATION_ID"])
 

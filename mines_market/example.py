@@ -4,7 +4,7 @@ from __init__ import fetch_location_ids, get_parsed_menu
 
 if __name__ == "__main__":
     # open config file with api key
-    with open("src/mines_market/config.json", "r") as file:
+    with open("mines_market/config.json", "r") as file:
         config = json.load(file)
 
     # get info on mines

@@ -4,7 +4,7 @@ with open('README.md') as file:
     long_description = file.read()
 setup(
     name='mines_market',
-    version='0.0.4',
+    version='0.1.0',
     author='Yamato Matsumura, Keenan Buckley',
     author_email='matsumura.yamato@gmail.com, keenandbuckley@protonmail.com',
     description='Access sodexo api to retrieve menu for desired location',

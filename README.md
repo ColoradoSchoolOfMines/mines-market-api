@@ -1,4 +1,4 @@
-# Mines Market API
+# Mines Market Package
 ---------------------------------------------------------------------------
 This 'mines_market' python package allows users to see menu options for any sodexo sponsored dining option. The package was made for Mines Market located at the Colorado School of Mines, but has the ability to work for other locations through a unique location id assigned to each dining option.
 
@@ -17,7 +17,7 @@ Install this package as you normally would via 'pip install mines_market'
 **NOTE: Package requires the use of an API key for sodexo's bite API**
 - Link to register found here: [Sodexo's Bite API](https://bite-external-api.portal.azure-api.net/)
 
-#### Users can use this API via two main functions:
+#### Users can use this package via two main functions:
 ##### 1. fetch_location_ids(location, apiKey, url)
 ###### Parameters
     - location: Location name of the place you are trying to access. For Mines Market, this is 'mines'

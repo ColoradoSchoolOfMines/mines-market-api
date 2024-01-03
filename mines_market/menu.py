@@ -17,7 +17,7 @@ def parse_menu(fullMenuDict):
         menuItem = fullMenuDict[i]["BiteMenuItemSizes"][0]
 
         # check if course or description missing from keys
-        if not {"Course", "Description"}.issubset(menuItem.keys()):
+        if not {"Course", "Description", "Ingredients"}.issubset(menuItem.keys()):
             continue
 
         # construct menu item object

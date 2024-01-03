@@ -2,7 +2,7 @@ import requests
 import datetime
 import json
 
-import menu
+from mines_market.menu import parse_menu
 
 
 # return info on mines
@@ -21,4 +21,4 @@ def get_menu(apiKey, locationId, date=datetime.date.today(), url="https://bite-e
 
 def get_parsed_menu(apiKey, locationId, date=datetime.date.today(), url="https://bite-external-api.azure-api.net/extern/bite-application/location"):
     fullMenuDict = get_menu(apiKey, locationId, date=date, url=url)
-    return menu.parse_menu(fullMenuDict)
+    return parse_menu(fullMenuDict)

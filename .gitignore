@@ -1,5 +1,5 @@
 # Project specific exceptions
-environment/
+sodexo_venv/
 config.json
 info.json
 result.json
